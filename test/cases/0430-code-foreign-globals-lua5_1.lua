@@ -24,7 +24,8 @@ local is_lua_aplicado_shell_found, err =
   pcall(import, 'lua-aplicado/shell.lua')
 
 if not is_lua_aplicado_shell_found then
-  test:BROKEN 'global_variable__PROMPT_error_on_load_in_interactive_mode'
+  print('WARNING: lua-aplicado shell module load error: ' .. tostring(err))
+  print('WARNING: skipping the tests')
   return
 end
 
