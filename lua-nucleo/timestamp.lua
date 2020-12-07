@@ -77,6 +77,14 @@ local get_decasecond_timestamp = function(timestamp)
   return os_time(t)
 end
 
+local unpack_timestamp = function(timestamp)
+  timestamp = timestamp or os_time()
+
+  local t = os.date("*t", timestamp)
+
+  return t.year, t.month, t.day, t.hour, t.min, t.sec
+end
+
 --------------------------------------------------------------------------------
 
 return
@@ -87,4 +95,5 @@ return
   get_quarter_timestamp = get_quarter_timestamp;
   get_minute_timestamp = get_minute_timestamp;
   get_decasecond_timestamp = get_decasecond_timestamp;
+  unpack_timestamp = unpack_timestamp;
 }
