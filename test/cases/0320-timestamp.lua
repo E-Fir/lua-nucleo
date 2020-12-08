@@ -15,6 +15,7 @@ local get_day_timestamp,
       get_minute_timestamp,
       get_decasecond_timestamp,
       unpack_timestamp,
+      make_timestamp_from_string,
       exports
       = import 'lua-nucleo/timestamp.lua'
       {
@@ -24,7 +25,8 @@ local get_day_timestamp,
         'get_quarter_timestamp',
         'get_minute_timestamp',
         'get_decasecond_timestamp',
-        'unpack_timestamp'
+        'unpack_timestamp',
+        'make_timestamp_from_string'
       }
 
 local ensure_equals,
@@ -168,4 +170,21 @@ test:test_for 'get_decasecond_timestamp' (function()
 
 end)
 
+test:test_for 'make_timestamp_from_string' (function()
+  ensure_equals(
+      "make_timestamp_from_string '08.12.2020 16:25:00' is 1607433900",
+      make_timestamp_from_string('08.12.2020 16:25:00'),
+      1607433900
+    )
+
+  ensure_equals(
+      "make_timestamp_from_string 'ske5v7ey5ny' is 1607433900",
+      make_timestamp_from_string('ske5v7ey5ny'),
+      nil
+    )
+
+  -- TODO: write more tests
+end)
+
 test:UNTESTED 'unpack_timestamp'
+test:UNTESTED 'MAX_TIMESTAMP'

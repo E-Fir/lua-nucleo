@@ -7,6 +7,12 @@
 
 local os_time, os_date = os.time, os.date
 
+local make_time_table
+      = import 'lua-nucleo/datetime-utils.lua'
+      {
+        'make_time_table'
+      }
+
 --------------------------------------------------------------------------------
 
 local get_day_timestamp = function(timestamp)
@@ -85,6 +91,24 @@ local unpack_timestamp = function(timestamp)
   return t.year, t.month, t.day, t.hour, t.min, t.sec
 end
 
+local make_timestamp_from_string = function(str, format)
+  format = format or "^(%d%d)%.(%d%d)%.(%d%d%d%d) (%d%d):(%d%d):(%d%d)"
+
+  local dom, mon, y, h, m, s = str:match(format)
+  if s == nil then
+    return nil
+  end
+
+  return os.time(make_time_table(
+    tonumber(dom),
+    tonumber(mon),
+    tonumber(y),
+    tonumber(h),
+    tonumber(m),
+    tonumber(s)
+  ))
+end
+
 --------------------------------------------------------------------------------
 
 return
@@ -98,4 +122,5 @@ return
   get_minute_timestamp = get_minute_timestamp;
   get_decasecond_timestamp = get_decasecond_timestamp;
   unpack_timestamp = unpack_timestamp;
+  make_timestamp_from_string = make_timestamp_from_string;
 }
