@@ -89,6 +89,8 @@ end
 
 return
 {
+  MAX_TIMESTAMP = 2^31 - 1;
+
   get_day_timestamp = get_day_timestamp;
   get_yesterday_timestamp = get_yesterday_timestamp;
   get_tomorrow_timestamp = get_tomorrow_timestamp;
