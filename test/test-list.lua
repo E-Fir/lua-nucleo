@@ -188,6 +188,10 @@ return
   };
   {
     type = 'cases';
+    path = 'test/cases/0325-datetime-utils.lua';
+  };
+  {
+    type = 'cases';
     path = 'test/cases/0330-tpretty.lua';
   };
   {
