@@ -292,6 +292,10 @@ return
   };
   {
     type = 'cases';
+    path = 'test/cases/0650-enumerator.lua';
+  };
+  {
+    type = 'cases';
     path = 'test/cases/0700-legacy.lua';
   };
 }
