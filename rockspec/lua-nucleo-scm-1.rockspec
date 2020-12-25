@@ -13,7 +13,14 @@ dependencies = {
    "lua >= 5.1"
 }
 build = {
-   type = "none",
+   type = "builtin",
+   modules = {
+      ["lua-nucleo.newproxy"] = {
+         sources = {
+            "c/lua-nucleo/newproxy.c"
+         }
+      }
+   },
    install = {
       lua = {
          ["lua-nucleo.algorithm"] = "lua-nucleo/algorithm.lua";
@@ -26,6 +33,7 @@ build = {
          ["lua-nucleo.code.globals"] = "lua-nucleo/code/globals.lua";
          ["lua-nucleo.code.profile"] = "lua-nucleo/code/profile.lua";
          ["lua-nucleo.coro"] = "lua-nucleo/coro.lua";
+         ["lua-nucleo.datetime-utils"] = "lua-nucleo/datetime-utils.lua";
          ["lua-nucleo.deque"] = "lua-nucleo/deque.lua";
          ["lua-nucleo.diagnostics"] = "lua-nucleo/diagnostics.lua";
          ["lua-nucleo.dsl.common_load_schema"] = "lua-nucleo/dsl/common_load_schema.lua";
@@ -34,6 +42,7 @@ build = {
          ["lua-nucleo.dsl.path_based_walker"] = "lua-nucleo/dsl/path_based_walker.lua";
          ["lua-nucleo.dsl.tagged-tree"] = "lua-nucleo/dsl/tagged-tree.lua";
          ["lua-nucleo.dsl.walk_data_with_schema"] = "lua-nucleo/dsl/walk_data_with_schema.lua";
+         ["lua-nucleo.enumerator"] = "lua-nucleo/enumerator.lua";
          ["lua-nucleo.ensure"] = "lua-nucleo/ensure.lua";
          ["lua-nucleo.factory"] = "lua-nucleo/factory.lua";
          ["lua-nucleo.functional"] = "lua-nucleo/functional.lua";
@@ -43,6 +52,7 @@ build = {
          ["lua-nucleo.key_value_store.key_value_store_simple"] = "lua-nucleo/key_value_store/key_value_store_simple.lua";
          ["lua-nucleo.key_value_store.key_value_store_sophisticated"] = "lua-nucleo/key_value_store/key_value_store_sophisticated.lua";
          ["lua-nucleo.language"] = "lua-nucleo/language.lua";
+         ["lua-nucleo.legacy"] = "lua-nucleo/legacy.lua";
          ["lua-nucleo.log"] = "lua-nucleo/log.lua";
          ["lua-nucleo.math"] = "lua-nucleo/math.lua";
          ["lua-nucleo.misc"] = "lua-nucleo/misc.lua";
