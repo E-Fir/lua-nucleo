@@ -403,10 +403,14 @@ local ensure_strlist = function(
   expected_suffix,
   ...
 )
-  ensure_strequals(msg, actual:sub(1, 1), expected_prefix)
-  ensure_strequals(msg, actual:sub(-1), expected_suffix)
+  if #expected_prefix > 0 then
+    ensure_strequals(msg, actual:sub(1, #expected_prefix), expected_prefix)
+  end
+  if #expected_suffix > 0 then
+    ensure_strequals(msg, actual:sub(-#expected_suffix), expected_suffix)
+  end
 
-  local actual_joined = actual:sub(2, -2)
+  local actual_joined = actual:sub(1 + #expected_prefix, -1 - #expected_suffix)
 
   local missed_elements = { }
   local excess_elements = { }
