@@ -321,8 +321,6 @@ local ensure_strvariant = function(msg, actual, expected, ...)
     )
 end
 
---------------------------------------------------------------------------------
-
 --- Checks if the `actual` string is constructed by the elements of
 -- the `expected_elements_list` linear string array table. Expected that
 -- elements are joined together with the `expected_sep` in between and not
@@ -333,10 +331,17 @@ end
 -- Returns all the arguments intact cutting the `msg` at beginning on success.
 -- <br />
 -- Raises the error on fail.
+-- <br />
+-- Best for simple long lists.
+-- <br />
+-- <br />
+-- <b>How it works:</b> cut `expected_prefix` and `expected_suffix` from the
+-- `actual` and break by `expected_sep`. Then find missing and excess elements
+-- in two array traverses. Raises the error if found any.
 -- @tparam string msg Failing message that will be used in the error message if
 --         the check fails.
 -- @tparam string actual A string to check.
--- @tparam string expected_prefix Expected prefix character. Expected that the
+-- @tparam string expected_prefix Expected prefix. Expected that the
 --         `actual` must start with the `expected_prefix`.
 -- @tparam string[] expected_elements_list Expected elements list. Expected that
 --         `expected_elements_list` elements exist in the `actual`
@@ -365,27 +370,27 @@ end
 --     'output check',
 --     '(a,b,c,d,e)',
 --     '(',
---     { 'a', 'b', 'c', 'd', 'e' })
+--     { 'a', 'b', 'c', 'd', 'e' },
 --     ',',
 --     ')'
 --   )
 --
 -- -- will fail because the real separator is ', ':
--- ensure_strlist(
---     'output check',
---     '(a, b, c, d, e)',
---     '(',
---     { 'a', 'b', 'c', 'd', 'e' })
---     ',',
---     ')'
---   )
+-- -- ensure_strlist(
+-- --     'output check',
+-- --     '(a, b, c, d, e)',
+-- --     '(',
+-- --     { 'a', 'b', 'c', 'd', 'e' },
+-- --     ',',
+-- --     ')'
+-- --   )
 --
 -- -- will pass without errors:
 -- ensure_strlist(
 --     'output check',
 --     '1+b*c+m^2/2',
 --     '',
---     { '1', 'b*c', 'm^2/2' })
+--     { '1', 'b*c', 'm^2/2' },
 --     '+',
 --     ''
 --   )
