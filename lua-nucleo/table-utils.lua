@@ -1072,6 +1072,67 @@ end
 
 local tifindallpermutations
 do
+  --- Finds all permutations of elements in the input linear array table `t`
+  -- and puts them into the `results` table.
+  -- @param t Input linear array table.
+  -- @param results All found permutations will be placed here.
+  -- @return None
+  -- @local
+  -- @usage
+  -- local tifindallpermutations
+  --       = import 'lua-nucleo/table-utils.lua'
+  --       {
+  --         'tifindallpermutations'
+  --       }
+  --
+  -- local permutations0 = tifindallpermutations({ })
+  -- -- permutations0 is { } here
+  --
+  -- local permutations1 = tifindallpermutations({ 1 }, { { 1 } })
+  -- -- permutations1 is { { 1 } } here
+  --
+  -- local permutations2 = tifindallpermutations({ 1, 2 })
+  -- -- permutations2 is { { 1, 2 }, { 2, 1 } }
+  --
+  -- local permutations3 = tifindallpermutations({ 1, 2, 3 })
+  -- -- permutations3 is
+  -- -- {
+  -- --   { 2, 3, 1 },
+  -- --   { 3, 2, 1 },
+  -- --   { 1, 3, 2 },
+  -- --   { 3, 1, 2 },
+  -- --   { 1, 2, 3 },
+  -- --   { 2, 1, 3 }
+  -- -- }
+  --
+  -- local permutations4 = tifindallpermutations({ 1, 2, 3, 4 })
+  -- -- permutations4 is
+  -- -- {
+  -- --   { 3, 4, 2, 1 },
+  -- --   { 4, 3, 2, 1 },
+  -- --   { 2, 4, 3, 1 },
+  -- --   { 4, 2, 3, 1 },
+  -- --   { 2, 3, 4, 1 },
+  -- --   { 3, 2, 4, 1 },
+  -- --   { 3, 4, 1, 2 },
+  -- --   { 4, 3, 1, 2 },
+  -- --   { 1, 4, 3, 2 },
+  -- --   { 4, 1, 3, 2 },
+  -- --   { 1, 3, 4, 2 },
+  -- --   { 3, 1, 4, 2 },
+  -- --   { 2, 4, 1, 3 },
+  -- --   { 4, 2, 1, 3 },
+  -- --   { 1, 4, 2, 3 },
+  -- --   { 4, 1, 2, 3 },
+  -- --   { 1, 2, 4, 3 },
+  -- --   { 2, 1, 4, 3 },
+  -- --   { 2, 3, 1, 4 },
+  -- --   { 3, 2, 1, 4 },
+  -- --   { 1, 3, 2, 4 },
+  -- --   { 3, 1, 2, 4 },
+  -- --   { 1, 2, 3, 4 },
+  -- --   { 2, 1, 3, 4 }
+  -- -- }
   tifindallpermutations = function(t, results)
     arguments(
         'table', t,
