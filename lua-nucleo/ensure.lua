@@ -323,6 +323,72 @@ end
 
 --------------------------------------------------------------------------------
 
+--- Checks if the `actual` string is constructed by the elements of
+-- the `expected_elements_list` linear string array table. Expected that
+-- elements are joined together with the `expected_sep` in between and not
+-- necessarily have the same order as in the `expected_elements_list`. Also,
+-- expected that the constructed list is prefixed by the `expected_prefix` and
+-- terminated by the `expected_suffix`.
+-- <br />
+-- Returns all the arguments intact cutting the `msg` at beginning on success.
+-- <br />
+-- Raises the error on fail.
+-- @tparam string msg Failing message that will be used in the error message if
+--         the check fails.
+-- @tparam string actual A string to check.
+-- @tparam string expected_prefix Expected prefix character. Expected that the
+--         `actual` must start with the `expected_prefix`.
+-- @tparam string[] expected_elements_list Expected elements list. Expected that
+--         `expected_elements_list` elements exist in the `actual`
+--         whatever the original order from the `expected_elements_list`.
+-- @tparam string expected_sep Expected separator character. Expected that this
+--         separator is used to join list elements together.
+-- @tparam string expected_suffix Expected suffix character. Expected that the
+--         `actual` ends with the `expected_suffix`.
+-- @tparam any[] ... Custom arguments.
+-- @raise `ensure_strlist failed error` if the check fails.
+-- @treturn string `actual` intact.
+-- @treturn string `expected_prefix` intact.
+-- @treturn string[] `expected_elements_list` intact.
+-- @treturn string `expected_sep` intact.
+-- @treturn string `expected_suffix` intact.
+-- @treturn any[] ... The rest of the arguments intact.
+-- @usage
+-- local ensure_strlist
+--       = import 'lua-nucleo/ensure.lua'
+--       {
+--         'ensure_strlist'
+--       }
+--
+-- -- will pass without errors:
+-- ensure_strlist(
+--     'output check',
+--     '(a,b,c,d,e)',
+--     '(',
+--     { 'a', 'b', 'c', 'd', 'e' })
+--     ',',
+--     ')'
+--   )
+--
+-- -- will fail because the real separator is ', ':
+-- ensure_strlist(
+--     'output check',
+--     '(a, b, c, d, e)',
+--     '(',
+--     { 'a', 'b', 'c', 'd', 'e' })
+--     ',',
+--     ')'
+--   )
+--
+-- -- will pass without errors:
+-- ensure_strlist(
+--     'output check',
+--     '1+b*c+m^2/2',
+--     '',
+--     { '1', 'b*c', 'm^2/2' })
+--     '+',
+--     ''
+--   )
 local ensure_strlist = function(
   msg,
   actual,
