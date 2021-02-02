@@ -1,3 +1,41 @@
+Version 1.1.0 (2021-02-15)
+==========================
+
+Resurrected fixed-version release.
+
+Additions and improvements:
+
+    Support Lua up to 5.4
+
+    make.sh:
+      More strict bash is set.
+      Updating list-exports only if a rock is installed.
+
+    tdeepequals:
+      tless_kv: optimization is made.
+      tmore: prevent crashes fix is made.
+
+    dsl/common_load_schema:
+      A heuristics to find a source location for dsl node is added.
+
+    table-utils:
+      tdeepfilter is added.
+      tisarray_not added.
+
+    language:
+      Exports are added: lua52_types, lua52_keywords, lua53_types,
+      lua53_keywords, lua54_types, lua54_keywords, lua_types, lua_keywords.
+
+    legacy:
+      loadstring is added.
+
+    Test framework extensions.
+
+    More tests are added (including tests for new features).
+
+    Documentation is updated.
+
+
 Version 1.0.0 (2016-12-15)
 ==========================
 

@@ -402,6 +402,10 @@ return
   {
     { "lua-nucleo/dsl/walk_data_with_schema.lua", w = 0 };
   };
+  loadstring =
+  {
+    { "lua-nucleo/legacy.lua", w = 0 };
+  };
   looped_linear_interpolator =
   {
     { "lua-nucleo/util/anim/interpolator.lua", w = 0 };
@@ -423,6 +427,38 @@ return
     { "lua-nucleo/language.lua", w = 0 };
   };
   lua51_types =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua52_keywords =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua52_types =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua53_keywords =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua53_types =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua54_keywords =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua54_types =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua_keywords =
+  {
+    { "lua-nucleo/language.lua", w = 0 };
+  };
+  lua_types =
   {
     { "lua-nucleo/language.lua", w = 0 };
   };
@@ -598,6 +634,10 @@ return
   {
     { "lua-nucleo/tdeepequals.lua", w = 0 };
   };
+  tdeepfilter =
+  {
+    { "lua-nucleo/table-utils.lua", w = 0 };
+  };
   tequals =
   {
     { "lua-nucleo/table-utils.lua", w = 0 };
@@ -687,6 +727,10 @@ return
     { "lua-nucleo/table-utils.lua", w = 0 };
   };
   tisarray =
+  {
+    { "lua-nucleo/table-utils.lua", w = 0 };
+  };
+  tisarray_not =
   {
     { "lua-nucleo/table-utils.lua", w = 0 };
   };
